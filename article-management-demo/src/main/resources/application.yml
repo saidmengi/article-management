@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/article_management
+    username: postgres
+    password: postgres
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+    continue-on-error: false
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: POSTGRESQL
+    show-sql: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
